@@ -5,6 +5,7 @@ Nome: Kauan Carneiro Almeida
 Link de Demonstração: https://youtube.com/shorts/cGRDk4f0v2E?si=ebOo9AdC3Z6WEpqx
 
 Requisito 6:
+
 #include <stdio.h>
 #include "pico/stdlib.h" // biblioteca padrão para trabalhar com a raspberry pi pico
 #include "hardware/pwm.h" // biblioteca para gerenciamento de temporizadores de hardware.
