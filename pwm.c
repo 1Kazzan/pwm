@@ -3,11 +3,11 @@
 #include "hardware/pwm.h" //biblioteca para gerenciamento de temporizadores de hardware.
 
 #define servomotor 22 // pino GPIO conectado ao servomotor
-#define WRAP 2499
+#define led_blue 12// pino GPIO do led azul
 
 // função para mover o servo para uma posição específica
 void mover(uint slice, uint duty_cicle) {
-    uint level = (duty_cicle * WRAP ) / 20000; // Calcula o nível de pwm (20000 refere-se ao período total do ciclo)
+    uint level = (duty_cicle * 24999) / 20000; // Calcula o nível de pwm(24999 é o WRAP e 2000 refere-se ao período total do ciclo)
     pwm_set_gpio_level(servomotor, level); //// define o nível de PWM no pino GPIO
 }
 
@@ -19,7 +19,7 @@ int main (){
     uint slice = pwm_gpio_to_slice_num(servomotor); //obter o canal PWM da GPIO
 
     pwm_set_clkdiv(slice, 100.0); //define o divisor de clock do PWM
-    pwm_set_wrap(slice, WRAP); //definir o wrap
+    pwm_set_wrap(slice, 24999); //definir o valor de wrap
 
     pwm_set_enabled(slice, true); //habilita o pwm no slice correspondente
 
